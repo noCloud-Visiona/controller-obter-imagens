@@ -24,13 +24,13 @@ jobs:
 
       - name: Build and tag Docker image for prodelopment
         run: |
-          docker build -t jonasrsribeiro/nc-controller-conversor -f Dockerfile.prod .
-          docker tag jonasrsribeiro/nc-controller-conversor:latest jonasrsribeiro/nc-controller-conversor:prod
+          docker build -t jonasrsribeiro/nc-controller-obter-imagens -f Dockerfile.prod .
+          docker tag jonasrsribeiro/nc-controller-obter-imagens:latest jonasrsribeiro/nc-controller-obter-imagens:prod
 
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u jonasrsribeiro --password-stdin
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push jonasrsribeiro/nc-controller-conversor:latest
-          docker push jonasrsribeiro/nc-controller-conversor:prod
+          docker push jonasrsribeiro/nc-controller-obter-imagens:latest
+          docker push jonasrsribeiro/nc-controller-obter-imagens:prod
